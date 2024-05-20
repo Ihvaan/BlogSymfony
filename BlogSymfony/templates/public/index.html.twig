@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur mon blog !{% endblock %}
+
+{% block stylesheets %}
+<style>
+div {
+    background-color:#CCC;
+}
+h3 {
+    color : darkblue;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+    {% for article in article %}
+<div>
+    <h1> {{article.title}}</h1>
+    <h3> {{article.Author}}</h3>
+    <p>{{ article.Description }}</p>
+    <a href="{{ path('app_article', {'id': article.id}) }}">Voir l'article</a>
+</div>
+{% endfor %}
+{% endblock %}
+
